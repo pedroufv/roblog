@@ -10,7 +10,9 @@
                     <h2>@lang('app.show.title', ['item' => __('categories.show', ['category' => $category->id])])</h2>
                 </div>
                 <div class="card-body">
+                    @can('admin')
                     <div class="form-group">
+
                         <button type="button" class="btn btn-outline-primary"
                                 onclick="location.href='{{ route('categories.edit', ['category' => $category]) }}'"
                                 title="@lang('app.edit.title', ['id' => $category->id])">
@@ -22,6 +24,7 @@
                             @lang('app.delete')
                         </button>
                     </div>
+                    @endcan
                     <div class="well">
                         <dl>
                             @foreach($category->toArray() as $key => $value)

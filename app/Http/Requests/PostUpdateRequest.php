@@ -8,7 +8,9 @@ class PostUpdateRequest extends FormRequest
 {
     public function authorize()
     {
-        return true;
+        $post = $this->route('post');
+
+        return $this->user()->can('update', $post);
     }
 
     public function rules()

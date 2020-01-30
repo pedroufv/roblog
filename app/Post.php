@@ -50,4 +50,9 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function isEditor(User $user)
+    {
+        return ($this->user->is($user) OR $user->isAdmin());
+    }
+
 }
