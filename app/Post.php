@@ -6,11 +6,12 @@ use Laravelha\Support\Traits\Tableable;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 
-class Category extends Model
+class Post extends Model
 {
     use Tableable;
 
     protected $guarded = ['id'];
+
 
     /**
      * ['data' => 'columnName', 'searchable' => true, 'orderable' => true, 'linkable' => false]
@@ -24,9 +25,29 @@ class Category extends Model
     {
         return [
             ['data' => 'id', 'linkable' => true],
-            ['data' => 'name', 'orderable' => false],
+            ['data' => 'title'],
+            ['data' => 'content'],
+            ['data' => 'category_id'],
+            ['data' => 'user_id'],
         ];
     }
 
+
+    /**
+     * Get the category of Post.
+     */
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+
+    /**
+     * Get the user of Post.
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
 }

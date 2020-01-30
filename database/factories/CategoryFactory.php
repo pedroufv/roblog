@@ -9,6 +9,6 @@ $factory->define(Category::class, function (Faker $faker) {
     return [
         'name' => $faker->text(150),
         'description' => $faker->text(),
-        'published_at' => $faker->date('d/m/Y'),
+        'published_at' => $faker->date(),
     ];
 });
