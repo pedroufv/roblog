@@ -2,13 +2,14 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravelha\Support\Traits\Tableable;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 
 class Category extends Model
 {
-    use Tableable;
+    use Tableable, SoftDeletes;
 
     protected $guarded = ['id'];
 

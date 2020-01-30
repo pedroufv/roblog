@@ -15,7 +15,7 @@
                         <dl>
                             @foreach($category->getAttributes() as $key => $value)
                                 <dt>@lang('categories.'.$key)</dt>
-                                @if(in_array($key, $category->getDates()))
+                                @if(in_array($key, $category->getDates()) && $category->$key)
                                     <dd>{{ $category->$key->format('d/m/Y H:i:s') }}</dd>
                                 @else
                                     <dd>{{ $value }}</dd>
